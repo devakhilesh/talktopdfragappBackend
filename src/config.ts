@@ -14,7 +14,8 @@ const _configEnv = {
   JWT_USER_SECERET_KEY:
     process.env.JWT_USER_SECERET_KEY || "your-user-secret-key",
   NODE_ENV: process.env.NODE_ENV || "development",
-  OPENAI_API_KEY: process.env.OPENAIAPIKEY
+  OPENAI_API_KEY: process.env.OPENAIAPIKEY,
+  QDRANT_DB:process.env.QDRANT_DB
 }; 
 
 export const configEnv = (_configEnv);
