@@ -12,7 +12,7 @@ const connectDB = async () => {
     mongoose.connection.on("error", (err) => {
       console.error("MongoDB connection error:", err);
     }); 
-
+ 
 
     await mongoose.connect(configEnv.MONGODB_URL_LOCAL as string, );
  
