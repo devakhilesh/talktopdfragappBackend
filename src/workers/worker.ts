@@ -248,15 +248,15 @@ import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { CharacterTextSplitter } from "@langchain/textsplitters";
 
 import { QdrantClient } from "@qdrant/js-client-rest";
-import { configEnv } from "../config"; 
-import DocumentModel from "../model/userModel/documentModel"; 
+import { configEnv } from "../config";
+import DocumentModel from "../model/userModel/documentModel";
 
 import { v4 as uuidv4 } from "uuid";
 
 const workerOptions: WorkerOptions = {
   connection: {
-    host: "localhost",
-    port: 6379,
+    host: configEnv.REDIS_HOST || "localhost",
+    port: Number(configEnv.REDIS_PORT || 6379),
   },
   concurrency: 100,
 };
@@ -375,7 +375,6 @@ const worker = new Worker(
       const result = await client.getCollections();
       console.log("List of collections:", result.collections);
 
-      
       // 5) mark processed true
       await DocumentModel.updateOne(
         { pdfId },

@@ -1,0 +1,12 @@
+ctrl+shift+p -->search for .git =>add git ignore (node)
+
+
+# initial command
+npm init -y 
+# setup typescript
+
+$ npm install -D typescript ts-node nodemon
+
+# after installation initialize a tsconfig file
+
+npx tsc --init

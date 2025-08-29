@@ -14,7 +14,7 @@ const _configEnv = {
   JWT_USER_SECERET_KEY:
     process.env.JWT_USER_SECERET_KEY || "your-user-secret-key",
   NODE_ENV: process.env.NODE_ENV || "development",
-  OPENAI_API_KEY: process.env.OPENAIAPIKEY,
+  OPENAI_API_KEY: process.env.OPENAI_API_KEY,
   QDRANT_DB: process.env.QDRANT_DB, // for local testing
   //for production ready QDRANT_DB
   QDRANT_URL: process.env.QDRANT_URL,

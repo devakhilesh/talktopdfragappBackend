@@ -1,0 +1,283 @@
+"Problem Statement" : 
+
+`akhil@AkhileshSoni MINGW64 ~/OneDrive/Desktop/Seceret/typeScript/ragTalktoPdf/talktopdfragappBackend (main)
+$ docker compose up 
+[+] Running 5/5
+ ✔ Network talktopdfragappbackend_default     Created                                                                              0.1s 
+ ✔ Container talktopdfragappbackend-valkey-1  Created                                                                              0.2s 
+ ✔ Container talktopdfragappbackend-mongo-1   Created                                                                              0.2s 
+ ✔ Container talktopdfragappbackend-qdrant-1  Created                                                                              0.2s 
+ ✔ Container talktopdfragappbackend-app-1     Created                                                                              0.2s 
+Attaching to app-1, mongo-1, qdrant-1, valkey-1
+qdrant-1  |            _                 _
+qdrant-1  |   __ _  __| |_ __ __ _ _ __ | |_  
+qdrant-1  |  / _` |/ _` | '__/ _` | '_ \| __|                                                                                           
+qdrant-1  | | (_| | (_| | | | (_| | | | | |_  
+qdrant-1  |  \__, |\__,_|_|  \__,_|_| |_|\__|                                                                                           
+qdrant-1  |     |_|                                                                                                                     
+qdrant-1  |                                                                                                                             
+qdrant-1  | Version: 1.15.1, build: af7ab5b1                                                                                            
+qdrant-1  | Access web UI at http://localhost:6333/dashboard                                                                            
+qdrant-1  | 
+qdrant-1  | 2025-08-29T09:17:14.224116Z  WARN qdrant: There is a potential issue with the filesystem for storage path ./storage. Details: Container filesystem detected - storage might be lost with container re-creation                                                      
+qdrant-1  | 2025-08-29T09:17:14.252436Z  INFO storage::content_manager::consensus::persistent: Initializing new raft state at ./storage/raft_state.json                                                                                                                         
+qdrant-1  | 2025-08-29T09:17:14.401592Z  INFO qdrant: Distributed mode disabled    
+qdrant-1  | 2025-08-29T09:17:14.401668Z  INFO qdrant: Telemetry reporting enabled, id: 63fc02b6-e861-4dad-8b12-f6a4535686c4    
+qdrant-1  | 2025-08-29T09:17:14.401701Z  INFO qdrant: Inference service is not configured.                                              
+qdrant-1  | 2025-08-29T09:17:14.413265Z  INFO qdrant::tonic: Qdrant gRPC listening on 6334                                              
+qdrant-1  | 2025-08-29T09:17:14.413296Z  INFO qdrant::tonic: TLS disabled for gRPC API                                                  
+qdrant-1  | 2025-08-29T09:17:14.428882Z  INFO qdrant::actix: TLS disabled for REST API                                                  
+qdrant-1  | 2025-08-29T09:17:14.429475Z  INFO qdrant::actix: Qdrant HTTP listening on 6333    
+qdrant-1  | 2025-08-29T09:17:14.430524Z  INFO actix_server::builder: starting 3 workers
+qdrant-1  | 2025-08-29T09:17:14.430718Z  INFO actix_server::server: Actix runtime found; starting in Actix runtime                      
+qdrant-1  | 2025-08-29T09:17:14.430792Z  INFO actix_server::server: starting service: "actix-web-service-0.0.0.0:6333", workers: 3, listening on: 0.0.0.0:6333                                                                                                                  
+valkey-1  | 1:M 29 Aug 2025 09:17:14.450 * oO0OoO0OoO0Oo Valkey is starting oO0OoO0OoO0Oo
+valkey-1  | 1:M 29 Aug 2025 09:17:14.450 * Valkey version=8.1.3, bits=64, commit=00000000, modified=0, pid=1, just started              
+valkey-1  | 1:M 29 Aug 2025 09:17:14.450 # Warning: no config file specified, using the default config. In order to specify a config file use valkey-server /path/to/valkey.conf
+valkey-1  | 1:M 29 Aug 2025 09:17:14.450 * monotonic clock: POSIX clock_gettime
+valkey-1  | 1:M 29 Aug 2025 09:17:14.451 * Running mode=standalone, port=6379.                                                          
+valkey-1  | 1:M 29 Aug 2025 09:17:14.451 * Server initialized
+valkey-1  | 1:M 29 Aug 2025 09:17:14.452 * Ready to accept connections tcp                                                              
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.604+00:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"-","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.610+00:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":17},"outgoing":{"minWireVersion":6,"maxWireVersion":17},"isInternalClient":true}}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.612+00:00"},"s":"I",  "c":"NETWORK",  "id":4648601, "ctx":"main","msg":"Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set tcpFastOpenServer, tcpFastOpenClient, and tcpFastOpenQueueSize."}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.615+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationDonorService","namespace":"config.tenantMigrationDonors"}}                 
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.615+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationRecipientService","namespace":"config.tenantMigrationRecipients"}}         
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.615+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"ShardSplitDonorService","namespace":"config.tenantSplitDonors"}}                          
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.615+00:00"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"main","msg":"Multi threading initialized"}                                                                                                                            
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.622+00:00"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":1,"port":27017,"dbPath":"/data/db","architecture":"64-bit","host":"a7c46c6abd8c"}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.622+00:00"},"s":"I",  "c":"CONTROL",  "id":23403,   "ctx":"initandlisten","msg":"Build Info","attr":{"buildInfo":{"version":"6.0.25","gitVersion":"919f50c37ef9f544a27e7c6e2d5e8e0093bc4902","openSSLVersion":"OpenSSL 3.0.2 15 Mar 2022","modules":[],"allocator":"tcmalloc","environment":{"distmod":"ubuntu2204","distarch":"x86_64","target_arch":"x86_64"}}}}       
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.622+00:00"},"s":"I",  "c":"CONTROL",  "id":51765,   "ctx":"initandlisten","msg":"Operating System","attr":{"os":{"name":"Ubuntu","version":"22.04"}}}                                                                            
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.622+00:00"},"s":"I",  "c":"CONTROL",  "id":21951,   "ctx":"initandlisten","msg":"Options set by command line","attr":{"options":{"net":{"bindIp":"*"}}}}                                                                         
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.659+00:00"},"s":"I",  "c":"STORAGE",  "id":22270,   "ctx":"initandlisten","msg":"Storage engine to use detected by data files","attr":{"dbpath":"/data/db","storageEngine":"wiredTiger"}}                                        
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.659+00:00"},"s":"I",  "c":"STORAGE",  "id":22297,   "ctx":"initandlisten","msg":"Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem","tags":["startupWarnings"]}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.659+00:00"},"s":"I",  "c":"STORAGE",  "id":22315,   "ctx":"initandlisten","msg":"Opening WiredTiger","attr":{"config":"create,cache_size=1372M,session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,remove=true,path=journal,compressor=snappy),builtin_extension_config=(zstd=(compression_level=6)),file_manager=(close_idle_time=600,close_scan_interval=10,close_handle_minimum=2000),statistics_log=(wait=0),json_output=(error,message),verbose=[recovery_progress:1,checkpoint_progress:1,compact_progress:1,backup:0,checkpoint:0,compact:0,evict:0,history_store:0,recovery:0,rts:0,salvage:0,tiered:0,timestamp:0,transaction:0,verify:0,log:0],"}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.880+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1756459034,"ts_usec":880214,"thread":"1:0x719c1520fcc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Recovering log 7 through 8"}}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:14.946+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1756459034,"ts_usec":946859,"thread":"1:0x719c1520fcc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Recovering log 8 through 8"}}}
+app-1     | node:internal/modules/cjs/loader:1215
+app-1     |   throw err;
+app-1     |   ^                                                                                                                         
+app-1     |                                                                                                                             
+app-1     | Error: Cannot find module '/app/dist/server.js'
+app-1     |     at Module._resolveFilename (node:internal/modules/cjs/loader:1212:15)                                                   
+app-1     |     at Module._load (node:internal/modules/cjs/loader:1043:27)
+app-1     |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)                                  
+app-1     |     at node:internal/main/run_main_module:28:49 {                                                                           
+app-1     |   code: 'MODULE_NOT_FOUND',
+app-1     |   requireStack: []
+app-1     | }
+app-1     | 
+app-1     | Node.js v20.19.4                                                                                                            
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.170+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1756459035,"ts_usec":170693,"thread":"1:0x719c1520fcc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Main recovery loop: starting at 7/5376 to 8/256"}}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.291+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1756459035,"ts_usec":291729,"thread":"1:0x719c1520fcc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Recovering log 7 through 8"}}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.357+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1756459035,"ts_usec":357847,"thread":"1:0x719c1520fcc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Recovering log 8 through 8"}}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.413+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1756459035,"ts_usec":413337,"thread":"1:0x719c1520fcc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"recovery log replay has successfully finished and ran for 533 milliseconds"}}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.413+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1756459035,"ts_usec":413537,"thread":"1:0x719c1520fcc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Set global recovery timestamp: (0, 0)"}}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.413+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1756459035,"ts_usec":413586,"thread":"1:0x719c1520fcc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Set global oldest timestamp: (0, 0)"}}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.413+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1756459035,"ts_usec":413828,"thread":"1:0x719c1520fcc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"recovery rollback to stable has successfully finished and ran for 0 milliseconds"}}}
+app-1 exited with code 1                                                                                                                
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.420+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1756459035,"ts_usec":420163,"thread":"1:0x719c1520fcc0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":6,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 1, snapshot max: 1 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 68"}}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.442+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1756459035,"ts_usec":442024,"thread":"1:0x719c1520fcc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"recovery checkpoint has successfully finished and ran for 27 milliseconds"}}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.442+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1756459035,"ts_usec":442158,"thread":"1:0x719c1520fcc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"recovery was completed successfully and took 562ms, including 533ms for the log replay, 0ms for the rollback to stable, and 27ms for the checkpoint."}}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.446+00:00"},"s":"I",  "c":"STORAGE",  "id":4795906, "ctx":"initandlisten","msg":"WiredTiger opened","attr":{"durationMillis":787}}                                                                                               
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.446+00:00"},"s":"I",  "c":"RECOVERY", "id":23987,   "ctx":"initandlisten","msg":"WiredTiger recoveryTimestamp","attr":{"recoveryTimestamp":{"$timestamp":{"t":0,"i":0}}}}                                                        
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.457+00:00"},"s":"W",  "c":"CONTROL",  "id":22120,   "ctx":"initandlisten","msg":"Access control is not enabled for the database. Read and write access to data and configuration is unrestricted","tags":["startupWarnings"]}    
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.458+00:00"},"s":"W",  "c":"CONTROL",  "id":5123300, "ctx":"initandlisten","msg":"vm.max_map_count is too low","attr":{"currentValue":262144,"recommendedMinimum":1677720,"maxConns":838860},"tags":["startupWarnings"]}          
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.460+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":17},"outgoing":{"minWireVersion":6,"maxWireVersion":17},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":17,"maxWireVersion":17},"outgoing":{"minWireVersion":17,"maxWireVersion":17},"isInternalClient":true}}}
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.460+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"6.0","context":"startup"}}                                    
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.460+00:00"},"s":"I",  "c":"STORAGE",  "id":5071100, "ctx":"initandlisten","msg":"Clearing temp directory"}                                                                                                                       
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.462+00:00"},"s":"I",  "c":"CONTROL",  "id":20536,   "ctx":"initandlisten","msg":"Flow Control is enabled on this deployment"}                                                                                                    
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.473+00:00"},"s":"I",  "c":"FTDC",     "id":20625,   "ctx":"initandlisten","msg":"Initializing full-time diagnostic data capture","attr":{"dataDirectory":"/data/db/diagnostic.data"}}                                            
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.478+00:00"},"s":"I",  "c":"REPL",     "id":6015317, "ctx":"initandlisten","msg":"Setting new configuration state","attr":{"newState":"ConfigReplicationDisabled","oldState":"ConfigPreStart"}}                                   
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.478+00:00"},"s":"I",  "c":"STORAGE",  "id":22262,   "ctx":"initandlisten","msg":"Timestamp monitor starting"}                                                                                                                    
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.489+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"/tmp/mongodb-27017.sock"}}                                                                                          
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.489+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"0.0.0.0"}}                                                                                                          
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.489+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}                                                                                          
+mongo-1   | {"t":{"$date":"2025-08-29T09:17:15.489+00:00"},"s":"I",  "c":"CONTROL",  "id":8423403, "ctx":"initandlisten","msg":"mongod startup complete","attr":{"Summary of time elapsed":{"Startup from clean shutdown?":true,"Statistics":{"Transport layer setup":"35 ms","Run initial syncer crash recovery":"0 ms","Create storage engine lock file in the data directory":"0 ms","Create storage engine lock file in the data directory":"0 ms","Get metadata describing storage engine":"0 ms","Get metadata describing storage engine":"0 ms","Validate options in metadata against current startup options":"0 ms","Validate options in metadata against current startup options":"0 ms","Create storage engine":"0 ms","Create storage engine":"788 ms","Write current PID to file":"0 ms","Write current PID to file":"0 ms","Initialize FCV before rebuilding indexes":"0 ms","Initialize FCV before rebuilding indexes":"2 ms","Drop abandoned idents and get back indexes that need to be rebuilt or builds that need to be restarted":"0 ms","Drop abandoned idents and get back indexes that need to be rebuilt or builds that need to be restarted":"0 ms","Rebuild indexes for collections":"0 ms","Rebuild indexes for collections":"0 ms","Build user and roles graph":"0 ms","Set up the background thread pool responsible for waiting for opTimes to be majority committed":"0 ms","Start up the replication coordinator":"1 ms","Start transport layer":"1 ms","_initAndListen total elapsed time":"867 ms"}}}}
+Gracefully stopping... (press Ctrl+C again to force)
+[+] Stopping 4/4
+ ✔ Container talktopdfragappbackend-app-1     Stopped                                                                              0.0s 
+ ✔ Container talktopdfragappbackend-valkey-1  Stopped                                                                              0.6s 
+ ✔ Container talktopdfragappbackend-qdrant-1  Stopped                                                                              0.5s 
+ ✔ Container talktopdfragappbackend-mongo-1   Stopped                                                                              0.4s 
+
+
+akhil@AkhileshSoni MINGW64 ~/OneDrive/Desktop/Seceret/typeScript/ragTalktoPdf/talktopdfragappBackend (main)
+$
+`
+
+projectStructure:`
+my project structure is TALKTOPDFRAGAPPBACKEND/
+│
+├── node_modules/
+│
+├── src/
+│   ├── controllers/
+│   ├── helper/
+│   ├── middi/
+│   ├── model/
+│   ├── route/
+│   ├── types/
+│   ├── utils/
+│   └── workers/
+│       └── worker.ts
+│
+├── app.ts
+├── config.ts
+├── db.ts
+├── server.ts
+├── server.js
+│
+├── .dockerignore
+├── .env
+├── .env.example
+├── .gitignore
+├── .prettierrc.json
+│
+├── command.txt
+├── docker-compose.yml
+├── Dockerfile
+├── eslint.config.mjs
+├── package.json
+├── package-lock.json
+├── test.json
+└── tsconfig.json
+`
+
+package.json :`{
+  "name": "talktopdfragappbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon server.ts",
+    "dev:worker": "nodemon --exec ts-node src/workers/worker.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@langchain/community": "^0.3.50",
+    "@langchain/core": "^0.3.68",
+    "@langchain/openai": "^0.6.7",
+    "@langchain/qdrant": "^0.1.3",
+    "@langchain/textsplitters": "^0.1.0",
+    "bcrypt": "^6.0.0",
+    "bullmq": "^5.56.9",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "express-fileupload": "^1.5.2",
+    "jsonwebtoken": "^9.0.2",
+    "langchain": "^0.3.30",
+    "mongoose": "^8.17.0",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^7.0.5",
+    "openai": "^4.62.1",
+    "otp-generator": "^4.0.1",
+    "pdf-parse": "^1.1.1",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "@eslint/json": "^0.13.1",
+    "@types/bcrypt": "^6.0.0",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/dotenv": "^8.2.3",
+    "@types/express": "^5.0.3",
+    "@types/express-fileupload": "^1.5.1",
+    "@types/http-errors": "^2.0.5",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^24.2.1",
+    "@types/node-fetch": "^2.6.13",
+    "@types/nodemailer": "^6.4.17",
+    "@types/otp-generator": "^4.0.2",
+    "eslint": "^9.32.0",
+    "globals": "^16.3.0",
+    "jiti": "^2.5.1",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.38.0"
+  }
+}
+
+`
+Dockerfile:`
+# ─── STAGE 1: Build ───────────────────────────────────────────────
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+# 1. Copy package files & install all deps
+COPY package.json package-lock.json ./
+RUN npm ci
+
+# 2. Copy source and compile
+COPY tsconfig.json ./
+COPY server.ts ./
+COPY src ./src
+
+# # Copy public so it will be picked up in final image
+# COPY public ./public
+RUN npx tsc
+
+# ─── STAGE 2: Production ────────────────────────────────────────
+FROM node:20-alpine
+WORKDIR /app
+
+# 1. Copy only prod deps
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
+
+# 2. Copy compiled output
+COPY --from=builder /app/dist ./dist
+
+# 3. (Optional) Copy entrypoint .env if you truly want to bake it in.
+#    But in most workflows you’ll use `--env-file` at `docker run` time instead.
+# COPY .env ./
+
+ENV PORT=3001
+EXPOSE 3001
+
+CMD ["node", "dist/server.js"]
+
+`
+
+docker composefile: `
+services:
+  valkey:
+    image: valkey/valkey
+    ports:
+      - 6379:6379
+
+  qdrant:
+    image: qdrant/qdrant
+    ports:
+      - 6333:6333
+
+  mongo:
+    image: mongo:6
+    restart: always
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+  app:
+    build: .
+    env_file: .env
+    depends_on:
+      - mongo
+    ports:
+      - "3001:3001"
+    command: ["node", "dist/server.js"]
+
+volumes:
+  mongo-data:
+
+`
+
+requirement:'''modify and correct working setup i want accordingly '''
