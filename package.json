@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "nodemon server.ts",
-    "dev:worker": "nodemon --exec ts-node src/worker.ts"
+    "dev:worker": "nodemon --exec ts-node src/workers/worker.ts"
   },
   "author": "",
   "license": "ISC",

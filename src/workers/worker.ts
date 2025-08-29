@@ -248,8 +248,9 @@ import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { CharacterTextSplitter } from "@langchain/textsplitters";
 
 import { QdrantClient } from "@qdrant/js-client-rest";
-import { configEnv } from "./config";
-import DocumentModel from "./model/userModel/documentModel";
+import { configEnv } from "../config"; 
+import DocumentModel from "../model/userModel/documentModel"; 
+
 import { v4 as uuidv4 } from "uuid";
 
 const workerOptions: WorkerOptions = {
