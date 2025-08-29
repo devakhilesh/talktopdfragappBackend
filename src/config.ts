@@ -21,6 +21,9 @@ const _configEnv = {
   API_KEY_QDRANT: process.env.API_KEY_QDRANT,
   REDIS_HOST: process.env.REDIS_HOST,
   REDIS_PORT: process.env.REDIS_PORT,
+  REDIS_PASSWORD: process.env.REDIS_PASSWORD,
+  REDIS_URL: process.env.REDIS_URL,
+  WORKER_CONCURRENCY: process.env.WORKER_CONCURRENCY,
 };
 
 export const configEnv = _configEnv;

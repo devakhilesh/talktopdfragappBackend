@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import { Queue } from "bullmq";
 import { OpenAIEmbeddings } from "@langchain/openai";
-
+import Redis from "ioredis";
 import { QdrantVectorStore } from "@langchain/qdrant";
 import { QdrantClient } from "@qdrant/js-client-rest";
 import ChatSessionModel from "../../model/userModel/chatSession";
@@ -24,13 +24,38 @@ import DocumentModel from "../../model/userModel/documentModel";
 import { v4 as uuidv4 } from "uuid";
 import { sha256FromBuffer } from "../../helper/hashingHex";
 
-// connection
-const queue: any = new Queue("file-upload-queue", {
-  connection: {
-    host: configEnv.REDIS_HOST ?? "valkey",
-    port: Number(configEnv.REDIS_PORT ?? 6379),
-  },
+// ---------- Redis connection (single source) ----------
+const redisUrl = process.env.REDIS_URL || configEnv.REDIS_URL || null;
+
+export const redisConnection = redisUrl
+  ? new Redis(redisUrl, {
+      maxRetriesPerRequest: 5,
+      connectTimeout: 10000,
+    })
+  : {
+      host: configEnv.REDIS_HOST || process.env.REDIS_HOST || "valkey", // keep valkey only as local compose fallback
+      port: Number(configEnv.REDIS_PORT || process.env.REDIS_PORT || 6379),
+      password: configEnv.REDIS_PASSWORD || process.env.REDIS_PASSWORD || undefined,
+    };
+
+// Optional: quick non-blocking connectivity test (logs)
+if ("on" in redisConnection) {
+  (async () => {
+    try {
+      await (redisConnection as Redis).set("__conn_test__", "1");
+      const v = await (redisConnection as Redis).get("__conn_test__");
+      console.log("Redis test OK:", v);
+    } catch (e) {
+      console.error("Redis test failed:", e);
+    }
+  })();
+}
+
+// ---------- Queue (reuses same connection) ----------
+export const queue = new Queue("file-upload-queue", {
+  connection: redisConnection,
 });
+
 
 const embeddings = new OpenAIEmbeddings({
   apiKey: configEnv.OPENAI_API_KEY,
