@@ -391,22 +391,29 @@
 /////////======================================== new with modificztion ================================================================
 // src/app.ts
 
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 
 const app = express();
-app.set("trust proxy", true);
+// app.set("trust proxy", true);
 
 // CORS
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://advertiser-frontend.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
-    credentials: true,
-    preflightContinue: false,
+    origin: (origin, callback) => callback(null, true), // dev: allow any origin
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "x-admin-token",
+      "x-adv-token", // <<--- must include this
+      "x-user-token",
+      "X-Requested-With",
+      "Accept",
+    ],
+    credentials: false, // set true only if you use cookies and handle origin echoing
     optionsSuccessStatus: 204,
   })
 );
@@ -432,5 +439,10 @@ app.use("/", user);
 app.get("/", (req, res) =>
   res.status(200).json({ message: "App is working perfect" })
 );
+
+// 404 & global error handler (keep them)
+app.use((req: Request, res: Response, next: NextFunction) => {
+  res.status(404).json({ status: false, message: "Route Not Found" });
+});
 
 export default app;

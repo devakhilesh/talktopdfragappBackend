@@ -17,10 +17,12 @@ export const userAuthentication = async (
   res: Response,
   next: NextFunction
 ) => {
-  const token = req.cookies?.["x-user-token"];
-  if (!token) {
+  
+const token = req.headers["x-user-token"];
+  if (!token  || typeof token !== "string") {
     return res.status(401).json({ status: false, message: "Login required" });
   }
+
 
   jwt.verify(
     token,

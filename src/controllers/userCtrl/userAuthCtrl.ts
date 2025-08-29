@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import userModel from "../../model/userModel/userAuthModel";
-import { makeCookieOptions } from "../../helper/cookies";
+// import { makeCookieOptions } from "../../helper/cookies";
 import { UserAuthenticationRequest } from "../../middi/userAuth";
 
 import { UserAuth } from "../../types/userTypes";
@@ -49,12 +49,13 @@ export const userLogIn = async (req: Request, res: Response, next: NextFunction)
 
     const token = jwt.sign({ _id: user._id, role: user.role }, configEnv.JWT_USER_SECERET_KEY as string);
 
-    res.cookie("x-user-token", token, makeCookieOptions(req));
+    // res.cookie("x-user-token", token, makeCookieOptions(req));
 
     return res.status(200).json({
       status: true,
       message: "Logged in successfully",
       data: user,
+      token: token,
     });
   } catch (err: any) {
     return res.status(500).json({ status: false, message: err.message });
@@ -64,7 +65,7 @@ export const userLogIn = async (req: Request, res: Response, next: NextFunction)
 // ===================== LOGOUT =====================
 export const userLogout = async (req: UserAuthenticationRequest, res: Response) => {
   try {
-    res.clearCookie("x-user-token", makeCookieOptions(req));
+    // res.clearCookie("x-user-token", makeCookieOptions(req));
 
     return res.status(200).json({
       status: true,

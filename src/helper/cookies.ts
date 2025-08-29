@@ -1,4 +1,4 @@
-import { Request } from "express";
+/* import { Request } from "express";
 
 
 
@@ -15,4 +15,4 @@ export function makeCookieOptions(req: Request): object {
     sameSite: secure ? "none" : "lax", // none+lax for localhost
     // domain/path: usually omit on localhost
   };
-}
+} */

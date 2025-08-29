@@ -10,3 +10,8 @@ $ npm install -D typescript ts-node nodemon
 # after installation initialize a tsconfig file
 
 npx tsc --init
+
+docker-compose down --volumes --remove-orphans
+docker system prune -af --volumes
+docker-compose build --no-cache
+docker-compose up
