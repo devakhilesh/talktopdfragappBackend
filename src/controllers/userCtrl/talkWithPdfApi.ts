@@ -27,7 +27,7 @@ import { sha256FromBuffer } from "../../helper/hashingHex";
 // connection
 const queue: any = new Queue("file-upload-queue", {
   connection: {
-    host: configEnv.REDIS_HOST ?? "localhost",
+    host: configEnv.REDIS_HOST ?? "valkey",
     port: Number(configEnv.REDIS_PORT ?? 6379),
   },
 });

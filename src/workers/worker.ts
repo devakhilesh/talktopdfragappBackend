@@ -408,8 +408,8 @@ const worker = new Worker(
   },
   {
     connection: {
-      host: process.env.REDIS_HOST || "localhost",
-      port: Number(process.env.REDIS_PORT || 6379),
+      host: configEnv.REDIS_HOST || "valkey",
+      port: Number(configEnv.REDIS_PORT || 6379),
     },
     concurrency: 5,
   }
